@@ -15,6 +15,11 @@ class UsersController < ApplicationController
             slogan: params[:slogan],
             mail: params[:mail]
         )
-        render json: @user
+
+        if @user.save
+            render json: @user
+        else 
+            format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
     end 
 end
