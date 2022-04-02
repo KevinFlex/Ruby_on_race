@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         if @user.save
             render json: @user
         else 
-            format.json { render json: @user.errors, status: :unprocessable_entity }
+            render json: @user.errors, status: :unprocessable_entity
         end
     end 
 end
